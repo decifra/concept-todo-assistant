@@ -41,7 +41,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Center(
                   child: GestureDetector(
-                    onTap: () => {print("Activating....")},
+                    onTap: () => {
+                      _openAssistantModal(context, screenHeight),
+                    },
                     child: Image.asset(
                       "assets/icons/assistant_icon@3x.png",
                       width: screenWidth * 0.4,
@@ -250,4 +252,28 @@ getTasksSlider(double height, double width) {
         ),
       )
       .toList();
+}
+
+void _openAssistantModal(context, screenHeight) {
+  showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      backgroundColor: kDarkPrimary,
+      builder: (BuildContext ctx) {
+        return Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: Icon(
+                  Icons.cancel_outlined,
+                  color: kLightPrimary,
+                ),
+              ),
+              Text("This is assistant!")
+            ],
+          ),
+        );
+      });
 }
