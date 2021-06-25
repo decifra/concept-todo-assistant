@@ -215,24 +215,34 @@ getTasksSlider(double height, double width) {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SvgPicture.asset(
-                  item.iconPath,
-                  width: 30,
-                  height: 30,
-                  color: kTealPrimary,
+                Expanded(
+                  flex: 1,
+                  child: SvgPicture.asset(
+                    item.iconPath,
+                    width: 30,
+                    height: 30,
+                    color: kTealPrimary,
+                  ),
                 ),
-                Text(
-                  DateFormat.MMMEd().format(item.date),
-                  style: TextStyle(color: kTealPrimary, fontFamily: "Industry"),
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    DateFormat.MMMEd().format(item.date),
+                    style:
+                        TextStyle(color: kTealPrimary, fontFamily: "Industry"),
+                  ),
                 ),
-                Text(
-                  item.title,
-                  style: GoogleFonts.montserrat(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                      color: kLightPrimary),
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.fade,
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    item.title,
+                    style: GoogleFonts.montserrat(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                        color: kLightPrimary),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.fade,
+                  ),
                 )
               ],
             ),
